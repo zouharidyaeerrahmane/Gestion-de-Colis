@@ -1,4 +1,4 @@
-# Application de Gestion de Colis - Examen Java 2025
+# Application de Gestion de Colis 
 
 ## 📋 Description
 
