@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.javaexamen.controllers.MainController">
+   <children>
+      <!-- Barre d'outils principale -->
+      <ToolBar prefHeight="40.0">
+         <items>
+            <Label text="Gestion de Livraison de Colis" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="exportButton" text="Exporter les livraisons du jour" />
+         </items>
+      </ToolBar>
+      
+      <!-- TabPane principal -->
+      <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab fx:id="livreurTab" text="Gestion des Livreurs" />
+            <Tab fx:id="colisTab" text="Gestion des Colis" />
+         </tabs>
+      </TabPane>
+      
+      <!-- Barre de statut -->
+      <HBox prefHeight="30.0" style="-fx-background-color: #f0f0f0; -fx-border-color: #d0d0d0; -fx-border-width: 1 0 0 0;">
+         <children>
+            <Label fx:id="statusLabel" text="Prêt">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false">
+               <HBox.margin>
+                  <Insets right="10.0" top="5.0" />
+               </HBox.margin>
+            </ProgressBar>
+         </children>
+      </HBox>
+   </children>
+</VBox>

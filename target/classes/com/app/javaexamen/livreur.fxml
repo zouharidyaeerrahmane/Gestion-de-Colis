@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.javaexamen.controllers.LivreurController">
+   <children>
+      <!-- Zone de saisie et boutons -->
+      <VBox spacing="10.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <!-- Titre -->
+            <Label text="Gestion des Livreurs" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            
+            <!-- Formulaire de saisie -->
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" minWidth="80.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+                  <ColumnConstraints halignment="RIGHT" minWidth="80.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Label text="Nom :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <TextField fx:id="nomField" promptText="Entrez le nom" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  
+                  <Label text="Prénom :" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <TextField fx:id="prenomField" promptText="Entrez le prénom" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                  
+                  <Label text="Téléphone :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <TextField fx:id="telephoneField" promptText="Entrez le numéro de téléphone" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="3" />
+               </children>
+            </GridPane>
+            
+            <!-- Boutons d'action -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Button fx:id="ajouterButton" text="Ajouter" prefWidth="80.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                  <Button fx:id="modifierButton" text="Modifier" prefWidth="80.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                  <Button fx:id="supprimerButton" text="Supprimer" prefWidth="80.0" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
+                  <Button fx:id="clearButton" text="Vider" prefWidth="80.0" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="countLabel" text="0 livreur(s)" style="-fx-font-style: italic;" />
+               </children>
+            </HBox>
+            
+            <Separator />
+            
+            <!-- Zone de recherche -->
+            <Label text="Recherche" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Nom :" />
+                  <TextField fx:id="searchNomField" promptText="Nom à rechercher" prefWidth="150.0" />
+                  <Label text="Prénom :" />
+                  <TextField fx:id="searchPrenomField" promptText="Prénom à rechercher" prefWidth="150.0" />
+                  <Button fx:id="rechercherButton" text="Rechercher" style="-fx-background-color: #FF9800; -fx-text-fill: white;" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <!-- Table des livreurs -->
+      <TableView fx:id="livreurTable" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="60.0" text="ID" />
+            <TableColumn fx:id="nomColumn" prefWidth="150.0" text="Nom" />
+            <TableColumn fx:id="prenomColumn" prefWidth="150.0" text="Prénom" />
+            <TableColumn fx:id="telephoneColumn" prefWidth="200.0" text="Téléphone" />
+         </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </VBox.margin>
+      </TableView>
+   </children>
+</VBox>

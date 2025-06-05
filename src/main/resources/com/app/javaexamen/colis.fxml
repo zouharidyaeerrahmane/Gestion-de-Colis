@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.javaexamen.controllers.ColisController">
+   <children>
+      <!-- Zone de saisie et boutons -->
+      <VBox spacing="10.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <!-- Titre -->
+            <Label text="Gestion des Colis" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            
+            <!-- Formulaire de saisie -->
+            <GridPane hgap="10.0" vgap="10.0">
+               <columnConstraints>
+                  <ColumnConstraints halignment="RIGHT" minWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="250.0" />
+                  <ColumnConstraints halignment="RIGHT" minWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+               <children>
+                  <Label text="Destinataire :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                  <TextField fx:id="destinataireField" promptText="Nom du destinataire" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  
+                  <Label text="Date d'envoi :" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <DatePicker fx:id="dateEnvoiPicker" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                  
+                  <Label text="Adresse :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                  <TextArea fx:id="adresseField" promptText="Adresse complète de livraison" prefRowCount="2" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+                  
+                  <Label text="Livreur :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="livreurComboBox" promptText="Sélectionner un livreur" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  
+                  <CheckBox fx:id="livreCheckBox" text="Colis livré" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.columnSpan="2" />
+               </children>
+            </GridPane>
+            
+            <!-- Boutons d'action -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Button fx:id="ajouterButton" text="Ajouter" prefWidth="80.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                  <Button fx:id="modifierButton" text="Modifier" prefWidth="80.0" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                  <Button fx:id="supprimerButton" text="Supprimer" prefWidth="80.0" style="-fx-background-color: #f44336; -fx-text-fill: white;" />
+                  <Separator orientation="VERTICAL" />
+                  <Button fx:id="assignerButton" text="Assigner" prefWidth="80.0" style="-fx-background-color: #9C27B0; -fx-text-fill: white;" />
+                  <Button fx:id="marquerLivreButton" text="Marquer livré" prefWidth="100.0" style="-fx-background-color: #FF5722; -fx-text-fill: white;" />
+                  <Button fx:id="clearButton" text="Vider" prefWidth="80.0" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Label fx:id="countLabel" text="0 colis" style="-fx-font-style: italic;" />
+               </children>
+            </HBox>
+            
+            <Separator />
+            
+            <!-- Zone de filtres -->
+            <Label text="Filtres" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+            <HBox spacing="15.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Statut :" />
+                  <ComboBox fx:id="filtreStatutComboBox" prefWidth="120.0" />
+                  <Label text="Livreur :" />
+                  <ComboBox fx:id="filtreLivreurComboBox" prefWidth="150.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <!-- Table des colis -->
+      <TableView fx:id="colisTable" VBox.vgrow="ALWAYS">
+         <columns>
+            <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="destinataireColumn" prefWidth="150.0" text="Destinataire" />
+            <TableColumn fx:id="adresseColumn" prefWidth="200.0" text="Adresse" />
+            <TableColumn fx:id="dateEnvoiColumn" prefWidth="100.0" text="Date envoi" />
+            <TableColumn fx:id="statutColumn" prefWidth="80.0" text="Statut" />
+            <TableColumn fx:id="livreurColumn" prefWidth="120.0" text="Livreur" />
+         </columns>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </VBox.margin>
+      </TableView>
+   </children>
+</VBox>
